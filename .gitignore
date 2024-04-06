@@ -1,0 +1,8 @@
+*.swp
+
+azure.conf
+azure.conf.*
+
+.terraform
+.terraform.lock.hcl
+terraform/terraform.tfstate.d/**/*
