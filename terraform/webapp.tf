@@ -21,6 +21,10 @@ resource "azurerm_linux_web_app" "awesome_app" {
 
   site_config {
     always_on = false
+    application_stack {
+      docker_registry_url = "https://index.docker.io"
+      docker_image_name = "dergons/demo-app:latest"
+    }
   }
 }
 
