@@ -5,4 +5,5 @@ azure.conf.*
 
 .terraform
 .terraform.lock.hcl
+*.tfplan
 terraform/terraform.tfstate.d/**/*
