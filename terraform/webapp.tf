@@ -1,23 +1,23 @@
 resource "azurerm_resource_group" "awesome_app" {
-  name     = "rg-awesome-app-${var.env}"
+  name     = "rg-awesome-app-dev"
   location = "North Europe"
 }
 
 resource "azurerm_service_plan" "awesome_app" {
-  name                = "plan-awesome-app-${var.env}"
+  name                = "plan-awesome-app-dev"
   resource_group_name = azurerm_resource_group.awesome_app.name
   location            = azurerm_resource_group.awesome_app.location
   os_type             = "Linux"
-  sku_name            = var.app_sku
+  sku_name            = "F1"
 }
 
 resource "azurerm_linux_web_app" "awesome_app" {
-  name                = "webapp-awesome-app-${var.env}"
+  name                = "webapp-awesome-app-dev"
   resource_group_name = azurerm_resource_group.awesome_app.name
   location            = azurerm_service_plan.awesome_app.location
   service_plan_id     = azurerm_service_plan.awesome_app.id
 
-  https_only = true
+  https_only = false
 
   site_config {
     always_on = false
